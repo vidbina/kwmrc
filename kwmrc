@@ -1,14 +1,22 @@
 // the move to move junk around
 define MODE_SPACE BindingModeSpace
+define DISPLAY_SPACE BindingModeDisplay
 
 // switch workspaces
 
 // Use a binding almost similar to whatever we know to switch mode in vim
 kwmc bindsym alt+ctrl-w mode activate MODE_SPACE
+kwmc bindsym alt+ctrl-q mode activate DISPLAY_SPACE
 
 kwmc bindsym MODE_SPACE+alt+ctrl-w mode activate default
+kwmc bindsym MODE_SPACE+alt+ctrl-q mode activate DISPLAY_SPACE
 kwmc bindsym MODE_SPACE-i mode activate default
 kwmc bindsym MODE_SPACE-esc mode activate default
+
+kwmc bindsym DISPLAY_SPACE+alt+ctrl-w mode activate MODE_SPACE
+kwmc bindsym DISPLAY_SPACE+alt+ctrl-q mode activate default
+kwmc bindsym DISPLAY_SPACE-i mode activate default
+kwmc bindsym DISPLAY_SPACE-esc mode activate default
 
 // navigate windows
 kwmc bindsym MODE_SPACE-k window -f north
@@ -21,10 +29,11 @@ kwmc bindsym MODE_SPACE+shift-k window -m north
 kwmc bindsym MODE_SPACE+shift-h window -m west
 kwmc bindsym MODE_SPACE+shift-l window -m east
 kwmc bindsym MODE_SPACE+shift-j window -m south
-// kwmc window -m display {display}
 
 kwmc bindsym MODE_SPACE-m window -mk focused
 kwmc bindsym MODE_SPACE-s window -s mark
+kwmc bindsym MODE_SPACE-< exec say hi
+// kwmc window -m display {display}
 
 // select spaces
 kwmc bindsym MODE_SPACE-1 space -fExperimental 1
@@ -37,6 +46,13 @@ kwmc bindsym MODE_SPACE-7 space -fExperimental 7
 kwmc bindsym MODE_SPACE-8 space -fExperimental 8
 kwmc bindsym MODE_SPACE-9 space -fExperimental 9
 
+// select displays
+kwmc bindsym DISPLAY_SPACE-0 display -f 0
+kwmc bindsym DISPLAY_SPACE-1 display -f 1
+kwmc bindsym DISPLAY_SPACE-2 display -f 2
+kwmc bindsym DISPLAY_SPACE-3 display -f 3
+kwmc bindsym DISPLAY_SPACE-4 display -f 4
+
 // move to space
 kwmc bindsym MODE_SPACE+shift-1 window -m space 1
 kwmc bindsym MODE_SPACE+shift-2 window -m space 2
@@ -47,6 +63,13 @@ kwmc bindsym MODE_SPACE+shift-6 window -m space 6
 kwmc bindsym MODE_SPACE+shift-7 window -m space 7
 kwmc bindsym MODE_SPACE+shift-8 window -m space 8
 kwmc bindsym MODE_SPACE+shift-9 window -m space 9
+
+// move to display
+kwmc bindsym DISPLAY_SPACE+shift-0 window -m display 0
+kwmc bindsym DISPLAY_SPACE+shift-1 window -m display 1
+kwmc bindsym DISPLAY_SPACE+shift-2 window -m display 2
+kwmc bindsym DISPLAY_SPACE+shift-3 window -m display 3
+kwmc bindsym DISPLAY_SPACE+shift-4 window -m display 4
 
 kwmc bindsym MODE_SPACE-q window -fm prev
 kwmc bindsym MODE_SPACE-w window -fm next
