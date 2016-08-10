@@ -1,0 +1,117 @@
+// the move to move junk around
+define MODE_SPACE BindingModeSpace
+
+// switch workspaces
+
+// Use a binding almost similar to whatever we know to switch mode in vim
+kwmc bindsym alt+ctrl-w mode activate MODE_SPACE
+
+kwmc bindsym MODE_SPACE+alt+ctrl-w mode activate default
+kwmc bindsym MODE_SPACE-i mode activate default
+kwmc bindsym MODE_SPACE-esc mode activate default
+
+// navigate windows
+kwmc bindsym MODE_SPACE-k window -f north
+kwmc bindsym MODE_SPACE-h window -f west
+kwmc bindsym MODE_SPACE-l window -f east
+kwmc bindsym MODE_SPACE-j window -f south
+
+// move windows
+kwmc bindsym MODE_SPACE+shift-k window -m north
+kwmc bindsym MODE_SPACE+shift-h window -m west
+kwmc bindsym MODE_SPACE+shift-l window -m east
+kwmc bindsym MODE_SPACE+shift-j window -m south
+// kwmc window -m display {display}
+
+kwmc bindsym MODE_SPACE-m window -mk focused
+kwmc bindsym MODE_SPACE-s window -s mark
+
+// select spaces
+kwmc bindsym MODE_SPACE-1 space -fExperimental 1
+kwmc bindsym MODE_SPACE-2 space -fExperimental 2
+kwmc bindsym MODE_SPACE-3 space -fExperimental 3
+kwmc bindsym MODE_SPACE-4 space -fExperimental 4
+kwmc bindsym MODE_SPACE-5 space -fExperimental 5
+kwmc bindsym MODE_SPACE-6 space -fExperimental 6
+kwmc bindsym MODE_SPACE-7 space -fExperimental 7
+kwmc bindsym MODE_SPACE-8 space -fExperimental 8
+kwmc bindsym MODE_SPACE-9 space -fExperimental 9
+
+// move to space
+kwmc bindsym MODE_SPACE+shift-1 window -m space 1
+kwmc bindsym MODE_SPACE+shift-2 window -m space 2
+kwmc bindsym MODE_SPACE+shift-3 window -m space 3
+kwmc bindsym MODE_SPACE+shift-4 window -m space 4
+kwmc bindsym MODE_SPACE+shift-5 window -m space 5
+kwmc bindsym MODE_SPACE+shift-6 window -m space 6
+kwmc bindsym MODE_SPACE+shift-7 window -m space 7
+kwmc bindsym MODE_SPACE+shift-8 window -m space 8
+kwmc bindsym MODE_SPACE+shift-9 window -m space 9
+
+kwmc bindsym MODE_SPACE-q window -fm prev
+kwmc bindsym MODE_SPACE-w window -fm next
+
+// move to display
+kwmc bindsym MODE_SPACE+shift+cmd-1 window -m display 1
+kwmc bindsym MODE_SPACE+shift+cmd-2 window -m display 2
+kwmc bindsym MODE_SPACE+shift+cmd-3 window -m display 3
+
+kwmc bindsym MODE_SPACE-r window -r focused; window -c refresh // resize window to container
+kwmc bindsym MODE_SPACE-f window -t focused // float window
+// toggle type={monocle|bsp}
+//kwmc bindsym MODE_SPACE-t window -c type toggle; exec say toggle
+kwmc bindsym MODE_SPACE+shift-t window -c type monocle; exec say monocle
+kwmc bindsym MODE_SPACE-t window -c type bsp; exec say bsp
+kwmc bindsym MODE_SPACE+shift-z window -z fullscreen
+kwmc bindsym MODE_SPACE-z window -z parent
+
+// window resizing
+kwmc bindsym MODE_SPACE+shift-\ window -c expand 0.1 north
+kwmc bindsym MODE_SPACE-\ window -c reduce 0.1 north
+kwmc bindsym MODE_SPACE+shift-' window -c expand 0.1 south
+kwmc bindsym MODE_SPACE-' window -c reduce 0.1 south
+
+kwmc bindsym MODE_SPACE+shift-p window -c expand 0.1 east
+kwmc bindsym MODE_SPACE-p window -c reduce 0.1 east
+kwmc bindsym MODE_SPACE+shift-u window -c expand 0.1 west
+kwmc bindsym MODE_SPACE-u window -c reduce 0.1 west
+
+kwmc mode MODE_SPACE prefix off
+kwmc mode MODE_SPACE color 0xFF00CCCC
+
+///////////////////////////////////////////////////////////////////////////////
+// configuration
+///////////////////////////////////////////////////////////////////////////////
+
+// padding for space
+kwmc config padding top 20
+kwmc config padding bottom 20
+kwmc config padding left 20
+kwmc config padding right 20
+
+//kwmc config border focused color FFCC0000
+kwmc config border focused color FFCCCCCC
+kwmc config border focused on
+
+//kwmc config add-role AXDialog iTerm2
+//kwmc config add-role AXWindow iTerm2
+kwmc rule owner="iTerm2" properties={role="AXDialog"}
+kwmc rule owner="App Store" properties={float="true", space="3"}
+kwmc rule owner="Alfred Preferences" properties={float="true"}
+kwmc rule owner="Spotify" properties={float="true"}
+kwmc rule owner="Calendar" properties={float="true", space="4"}
+kwmc rule owner="Upwork" properties={float="true", space="3"}
+kwmc rule owner="Skype" properties={float="true", space="3"}
+kwmc rule owner="TorGuard" properties={space="3"}
+kwmc rule owner="FreeCAD" properties={float="false"}
+
+// float non-resizable windows, because they fuck up the tiles otherwise
+kwmc config float-non-resizable on
+
+// disable focussing on window behind mouse cursor
+kwmc config focus-follows-mouse off
+
+// disable focus following mouse on floating windows
+kwmc config standby-on-float on
+
+kwmc config mouse-follows-focus on
