@@ -32,7 +32,7 @@ kwmc bindsym MODE_SPACE+shift-j window -m south
 
 kwmc bindsym MODE_SPACE-m window -mk focused
 kwmc bindsym MODE_SPACE-s window -s mark
-kwmc bindsym MODE_SPACE-< exec say hi
+//kwmc bindsym MODE_SPACE-< exec say hi
 // kwmc window -m display {display}
 
 // select spaces
