@@ -215,6 +215,14 @@ kwmc bindsym ctrl+shift-x window -m mark
 // Move Focused Window To Space
 kwmc bindsym ctrl+alt-left window -m space left
 kwmc bindsym ctrl+alt-right window -m space right
+kwmc bindsym ctrl+alt-0 window -m space 0
+kwmc bindsym ctrl+alt-1 window -m space 1
+kwmc bindsym ctrl+alt-2 window -m space 2
+kwmc bindsym ctrl+alt-3 window -m space 3
+kwmc bindsym ctrl+alt-4 window -m space 4
+kwmc bindsym ctrl+alt-5 window -m space 5
+kwmc bindsym ctrl+alt-6 window -m space 6
+kwmc bindsym ctrl+alt-7 window -m space 7
 
 // Move Focused Window To Screen
 kwmc bindsym ctrl+alt-1 window -m display 0
